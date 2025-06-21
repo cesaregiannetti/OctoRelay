@@ -10,7 +10,7 @@ class Driver():
 
     def __init__(self, pin: int, inverted: bool, pin_factory=None):
         self.pin = pin # GPIO pin
-        self.handle = LED(pin, pin_factory=pin_factory, active_high=not inverted)
+        self.handle = LED(pin, pin_factory=pin_factory, active_high=not inverted, initial_value=None)
         # release immediately, avoid lock, allow physical buttons to operate same relays:
         self.handle.pin_factory.release_pins(self.handle, self.pin)
 
